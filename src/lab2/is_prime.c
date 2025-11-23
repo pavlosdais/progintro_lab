@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAXNUM 100
+
+bool is_prime(int n);
+
+int main(void)
+{
+    int prime_count = 0;
+    for (int i = 2; i < MAXNUM; i++)
+    {
+        if (is_prime(i)) {
+            printf("%d ", i);
+            prime_count++;
+        }
+    }
+    printf("\nFound %d primes\n", prime_count);
+    return 0;
+}
+
+bool is_prime(int n) {
+    for (int i = 2; i < n; i++)  // can we do better?
+    {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
